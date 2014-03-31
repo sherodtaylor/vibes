@@ -2,5 +2,6 @@
  /* global angular */
 
 angular.module('vibes', [
-  'vibes.controllers'
-])
+  'vibes.controllers',
+  'vibes.services'
+]);

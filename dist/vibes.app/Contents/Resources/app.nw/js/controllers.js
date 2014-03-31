@@ -3,12 +3,6 @@
 
 
 angular.module('vibes.controllers', []).
-  controller('categoriesCtrl', ['$scope',function($scope) {
-    $scope.categories = [
-      'rap',
-      'trap',
-      'rock',
-      'indie rock',
-      'r&b'
-    ]
+  controller('categoriesCtrl', ['$scope', 'tagScv', function($scope, tagScv) {
+    $scope.categories = tagScv.topTags();
   }]);
