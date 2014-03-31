@@ -1,13 +1,14 @@
 angular.module('vibes.services', ['ngResource'])
-	.factory('tagsSvc', ['$resource', function($resource) {
+	.factory('tagSvc', ['$resource', function($resource) {
 		return $resource('http://ws.audioscrobbler.com/2.0/', {
-			api_key: LASTFM_KEYS,
+			api_key: LASTFM_KEY,
 			format: 'json'
 		}, {
-			topTags: {
+			toptags: {
 				method: 'GET',
 				params: {
-					method: 'tags.getTopTags'
+					method: 'tag.getTopTags',
+					isArray: true
 				}
 			}
 		})

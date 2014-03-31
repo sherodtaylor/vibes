@@ -1,8 +1,11 @@
 'use strict';
 /* global angular */
 
-
 angular.module('vibes.controllers', []).
-  controller('categoriesCtrl', ['$scope', 'tagScv', function($scope, tagScv) {
-    $scope.categories = tagScv.topTags();
+  controller('categoriesCtrl', ['$scope', 'tagSvc', function($scope, tagSvc) {
+    tagSvc.toptags().$promise.then(function(res) {
+      $scope.categories = res.toptags.tag;
+      console.log(res.toptags.tag)
+    });
   }]);
+
