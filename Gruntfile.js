@@ -193,7 +193,6 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('dist-linux', [
-    'jshint',
     'clean:dist',
     'copy:appLinux',
     'createLinuxApp'
@@ -210,7 +209,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('dist-mac', [
-    'jshint',
     'clean:dist',
     'copy:webkit',
     'copy:appMacos',

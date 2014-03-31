@@ -1,22 +1,15 @@
 {
   "name": "vibes",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A music torrent app",
   "keywords": [],
-  
-    "homepage": "https://github.com/sherodtaylor/vibes",
-    "bugs": "https://github.com/sherodtaylor/vibes/issues",
-    "author": {
-      "name": "sherod taylor",
-      "email": "sherodtaylor@gmail.com",
-      "url": "https://github.com/sherodtaylor"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git://github.com/sherodtaylor/vibes.git"
-    },
-  
-  "dependencies": {},
+  "author": {
+    "name": "sherod taylor",
+    "email": "sherodtaylor@gmail.com",
+    "url": "https://github.com/sherodtaylor"
+  },
+  "dependencies": {
+  },
   "devDependencies": {
     "matchdep": "~0.1.2",
     "grunt": "~0.4.1",
