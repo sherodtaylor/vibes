@@ -13,8 +13,9 @@
 <body>
 	<div ng-controller="categoriesCtrl">
 		<ul>
-			<li ng-repeat="cat in categories">
+			<li ng-repeat="cat in categories | limitTo: 100">
 				<p>{{cat.name}}</p>
+        <p>{{cat.count}}</p>
 			</li>
 		</ul>
 	</div>
