@@ -11,13 +11,20 @@
   <script src="../js/controllers.js"></script>
 </head>
 <body>
-	<div ng-controller="categoriesCtrl">
-		<ul>
-			<li ng-repeat="cat in categories | limitTo: 100">
+	<div>
+		<ul ng-controller="categoriesCtrl">
+			<li ng-repeat="cat in categories | limitTo: 5">
 				<p>{{cat.name}}</p>
         <p>{{cat.count}}</p>
 			</li>
 		</ul>
+    <div ng-controller="searchByTrackCtrl">
+      <input type="text" ng-model="name">
+      <a href="" ng-click="search()">click me</a>
+      <div>
+        {{playlist}}
+      </div>
+    </div>
 	</div>
 </body>
 </html>
