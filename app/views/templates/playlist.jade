@@ -1,0 +1,8 @@
+div
+  input(type="text" ng-model="name")
+  a(href="", ng-click="search()") click me
+
+  ul
+    li(ng-repeat="track in tracks")
+      p {{track.name}}
+

@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="vibes"></html>
-<head></head>
-<title>vibes
-  <script src="../js/bower_components/jquery/dist/jquery.js"></script>
-  <script src="../js/bower_components/angular/angular.js"></script>
-  <script src="../js/bower_components/angular-resource/angular-resource.js"></script>
-  <script src="../js/bower_components/angular-audio-playlist/dist/angular-audio-player.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/services.js"></script>
-  <script src="../js/controllers.js"></script>
-</title>
-<body ng-controller="mainCtrl">
-  <div>
-    <ul ng-controller="categoriesCtrl">
-      <li ng-repeat="cat in categories | limitTo: 5">
-        <p>{{cat.name}}</p>
-        <p>{{cat.count}}</p>
-      </li>
+<html ng-app="vibes">
+  <head>
+    <title>vibes</title>
+    <script src="../js/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/bower_components/angular/angular.js"></script>
+    <script src="../js/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../js/bower_components/angular-route/angular-route.js"></script>
+    <script src="../js/bower_components/angular-audio-playlist/dist/angular-audio-player.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/services.js"></script>
+    <script src="../js/controllers.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#/playlist">playlist</a></li>
     </ul>
-    <div ng-controller="searchByTrackCtrl">
-      <input type="text" ng-model="name"><a href="" ng-click="search()">click me</a>
-    </div>
-  </div>
-</body>
+    <div ng-view></div>
+  </body>
+</html>

@@ -1,21 +1,18 @@
 doctype html
 html(ng-app="vibes")
-head
-title vibes
-  script(src="../js/bower_components/jquery/dist/jquery.js")
-  script(src="../js/bower_components/angular/angular.js")
-  script(src="../js/bower_components/angular-resource/angular-resource.js")
-  script(src="../js/bower_components/angular-audio-playlist/dist/angular-audio-player.js")
-  script(src="../js/app.js")
-  script(src="../js/services.js")
-  script(src="../js/controllers.js")
+  head
+    title vibes
+    script(src="../js/bower_components/jquery/dist/jquery.js")
+    script(src="../js/bower_components/angular/angular.js")
+    script(src="../js/bower_components/angular-resource/angular-resource.js")
+    script(src="../js/bower_components/angular-route/angular-route.js")
+    script(src="../js/bower_components/angular-audio-playlist/dist/angular-audio-player.js")
+    script(src="../js/app.js")
+    script(src="../js/services.js")
+    script(src="../js/controllers.js")
 
-body(ng-controller="mainCtrl")
-  div
-    ul(ng-controller="categoriesCtrl")
-      li(ng-repeat="cat in categories | limitTo: 5")
-        p {{cat.name}}
-        p {{cat.count}}
-    div(ng-controller="searchByTrackCtrl")
-      input(type="text" ng-model="name")
-      a(href="", ng-click="search()") click me
+  body
+    ul
+      li
+        a(href="#/playlist") playlist
+    div(ng-view)

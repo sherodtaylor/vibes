@@ -10,18 +10,24 @@ angular.module('vibes.controllers', [])
       $scope.categories = data.toptags.tag;
     })
   }])
+  .controller('searchCtrl', ['$scope', 'trackSvc', 'playlistSvc', function($scope, trackSvc, playlistSvc) {
+    // $scope.search = function() {
+    //   trackSvc.search({
+    //     q: $scope.name
+    //   }, function(data) {
+    //     console.log(data.tracks[0]);
+    //     $scope.playlist = playlistSvc.normal({
+    //       song_id: 'spotify-WW:track:' + data.tracks[0].href.split(':')[2]
+    //     });
+    //   });
+    // };
 
-  .controller('searchByTrackCtrl', ['$scope', 'trackSvc', 'playlistSvc', function($scope, trackSvc, playlistSvc) {
-    $scope.search = function() {
-      trackSvc.search({
-        q: $scope.name
-      }, function(data) {
-        console.log(data.tracks[0]);
-        $scope.playlist = playlistSvc.normal({
-          song_id: 'spotify-WW:track:' + data.tracks[0].href.split(':')[2]
-        });
-      });
-    };
+    $scope.tracks[{
+      name: 'big butts'
+    }, {
+      name: 'bubble butt'
+    }]
+
   }]);
 
 
