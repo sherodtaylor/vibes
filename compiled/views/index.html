@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="vibes">
-<head>
-  <title>vibes</title>
+<html ng-app="vibes"></html>
+<head></head>
+<title>vibes
   <script src="../js/bower_components/jquery/dist/jquery.js"></script>
   <script src="../js/bower_components/angular/angular.js"></script>
   <script src="../js/bower_components/angular-resource/angular-resource.js"></script>
@@ -9,22 +9,17 @@
   <script src="../js/app.js"></script>
   <script src="../js/services.js"></script>
   <script src="../js/controllers.js"></script>
-</head>
-<body>
-	<div>
-		<ul ng-controller="categoriesCtrl">
-			<li ng-repeat="cat in categories | limitTo: 5">
-				<p>{{cat.name}}</p>
+</title>
+<body ng-controller="mainCtrl">
+  <div>
+    <ul ng-controller="categoriesCtrl">
+      <li ng-repeat="cat in categories | limitTo: 5">
+        <p>{{cat.name}}</p>
         <p>{{cat.count}}</p>
-			</li>
-		</ul>
+      </li>
+    </ul>
     <div ng-controller="searchByTrackCtrl">
-      <input type="text" ng-model="name">
-      <a href="" ng-click="search()">click me</a>
-      <div>
-        {{playlist}}
-      </div>
+      <input type="text" ng-model="name"><a href="" ng-click="search()">click me</a>
     </div>
-	</div>
+  </div>
 </body>
-</html>

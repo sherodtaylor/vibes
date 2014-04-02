@@ -10,6 +10,7 @@ module.exports = function (grunt) {
   var config = {
     app: 'app',
     dist: 'dist',
+    compiled: 'compiled',
     tmp: 'tmp',
     resources: 'resources'
   };
@@ -27,17 +28,64 @@ module.exports = function (grunt) {
         }]
       }
     },
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      files: '<%= config.app %>/js/*.js'
-    },
-    copy: {
-      appLinux: {
+
+    stylus: {
+      build: {
+        options: {
+          lineos: true,
+          compress: false
+        },
         files: [{
           expand: true,
           cwd: '<%= config.app %>',
+          src: ['styles/*.styl'],
+          dest: '<%= config.compiled %>',
+          ext: '.css'
+        }]
+      }
+    },
+
+    jade: {
+      compile: {
+        options: {
+          data: {
+              debug: false
+          },
+          pretty: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>',
+          src: ['views/*.jade'],
+          dest: '<%= config.compiled %>',
+          ext: '.html'
+        }]
+      }
+    },
+
+    copy: {
+      compiled: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.compiled %>',
+          src: 'js/**'
+        }, {
+          expand: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.compiled %>',
+          src: 'images/**'
+        }, {
+          expand: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.compiled %>',
+          src: 'package.json'
+        }]
+      },
+      appLinux: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.compiled %>',
           dest: '<%= config.dist %>/app.nw',
           src: '**'
         }]
@@ -45,7 +93,7 @@ module.exports = function (grunt) {
       appMacos: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.compiled %>',
           dest: '<%= config.dist %>/node-webkit.app/Contents/Resources/app.nw',
           src: '**'
         }, {
@@ -86,7 +134,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.compiled %>',
           src: ['**']
         }]
       },
@@ -194,13 +242,18 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dist-linux', [
     'clean:dist',
+    'stylus',
+    'jade',
+    'copy:compiled',
     'copy:appLinux',
     'createLinuxApp'
   ]);
 
   grunt.registerTask('dist-win', [
-    'jshint',
     'clean:dist',
+    'stylus',
+    'jade',
+    'copy:compiled',
     'copy:copyWinToTmp',
     'compress:appToTmp',
     'rename:zipToApp',
@@ -210,6 +263,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dist-mac', [
     'clean:dist',
+    'stylus',
+    'jade',
+    'copy:compiled',
     'copy:webkit',
     'copy:appMacos',
     'rename:app',
