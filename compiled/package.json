@@ -1,6 +1,7 @@
 {
   "name": "vibes",
-  "main": "views/index.html",
+  "node-main": "index.js",
+  "main": "http://localhost:4000/views/index.html",
   "version": "0.0.1",
   "single-instance": true,
   "window": {

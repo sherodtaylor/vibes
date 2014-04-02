@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>',
-          src: ['styles/*.styl'],
+          src: ['public/styles/*.styl'],
           dest: '<%= config.compiled %>',
           ext: '.css'
         }]
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>',
-          src: ['views/*.jade'],
+          src: ['public/views/*.jade'],
           dest: '<%= config.compiled %>',
           ext: '.html'
         }]
@@ -69,12 +69,17 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>',
           dest: '<%= config.compiled %>',
-          src: 'js/**'
+          src: 'public/js/**/*'
         }, {
           expand: true,
           cwd: '<%= config.app %>',
           dest: '<%= config.compiled %>',
-          src: 'images/**'
+          src: 'public/images/**'
+        }, {
+          expand: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.compiled %>',
+          src: 'index.js'
         }, {
           expand: true,
           cwd: '<%= config.app %>',
